@@ -1,4 +1,5 @@
 <!-- portfolio.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
       --text-muted: #d1d1d1;
       --bg-glass: rgba(255, 255, 255, 0.05);
       --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      --gradient-primary: linear-gradient(135deg, #6a3093, #a044ff);
+      --gradient-primary: linear-gradient(135deg, #6a3093, #d6d618);
       --gradient-secondary: linear-gradient(135deg, #141e30, #243b55);
       --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
       --card-border: 1px solid rgba(255, 255, 255, 0.08);
@@ -84,7 +85,7 @@
       font-size: 3.2em;
       font-weight: 900;
       margin: 0.6em 0 0.2em;
-      background: linear-gradient(to right, #c471ed, #f64f59);
+      background: linear-gradient(to right, #c471ed, #c61f73);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -267,14 +268,17 @@
       box-shadow: 0 8px 20px rgba(160, 68, 255, 0.6);
     }
     
-    #projects .projects-grid {
+    #projects .projects-grid,
+    #certificates .projects-grid, /* Apply to certificates grid */
+    .Achievement-grid { /* Apply to achievements grid */
       display: flex;
       flex-wrap: wrap;
       gap: 2.5em;
       justify-content: center;
     }
     
-    .project-card {
+    .project-card,
+    .Achievement-card { /* Apply to achievement cards as well */
       background: var(--gradient-card);
       border-radius: 16px;
       padding: 2em;
@@ -287,7 +291,8 @@
       overflow: hidden;
     }
     
-    .project-card::before {
+    .project-card::before,
+    .Achievement-card::before { /* Apply to achievement card pseudo-element */
       content: '';
       position: absolute;
       top: 0;
@@ -300,16 +305,19 @@
       transition: transform 0.5s ease;
     }
     
-    .project-card:hover::before {
+    .project-card:hover::before,
+    .Achievement-card:hover::before { /* Apply to achievement card pseudo-element hover */
       transform: scaleX(1);
     }
     
-    .project-card:hover {
+    .project-card:hover,
+    .Achievement-card:hover { /* Apply to achievement card hover */
       transform: translateY(-12px);
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     }
     
-    .project-card img {
+    .project-card img
+     { /* Apply to achievement card images */
       width: 100%;
       border-radius: 15px;
       margin-bottom: 1.5em;
@@ -317,18 +325,32 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
     
-    .project-card:hover img {
+    .Achievement-card img{
+        width: 100%;
+        height: auto;
+        transform: rotate(2deg);
+      border-radius: 15px;
+      margin-bottom: 1.5em;
+      transition: transform 0.5s;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    
+    .project-card:hover img,
+    .Achievement-card:hover img { /* Apply to achievement card images hover */
       transform: scale(1.03);
     }
     
-    .project-card h3 {
+    .project-card h3,
+    .Achievement-card h3 { /* Apply to achievement card headings */
       font-size: 1.6em;
       margin-bottom: 0.7em;
       color: var(--accent-light);
       font-weight: 600;
     }
     
-    .project-card p {
+    .project-card p,
+    .Achievement-card p { /* Apply to achievement card paragraphs */
       font-size: 1.05em;
       color: var(--text-muted);
       margin-bottom: 1.5em;
@@ -365,7 +387,7 @@
     }
     
     .resume-button {
-      background: linear-gradient(135deg, #2ecc71, #27ae60);
+      background: linear-gradient(135deg, #2ecc71, #87ba10);
       padding: 1.1em 2.2em;
       color: #fff;
       font-weight: 600;
@@ -382,7 +404,7 @@
     
     .resume-button:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(46, 204, 113, 0.6);
+      box-shadow: 0 10px 25px rgba(43, 183, 38, 0.6);
     }
     
     #contact a {
@@ -430,7 +452,8 @@
         gap: 1em;
       }
       
-      .project-card {
+      .project-card,
+      .Achievement-card { /* Apply to achievement cards */
         width: 100%;
         max-width: none;
       }
@@ -449,147 +472,96 @@
       }
     }
 
+    /* Original contact styles, which might be redundant now */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0a29;
+      color: #ffffff;
+    }
 
-    font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0f0a29;
-            color: #ffffff;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
 
-       .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
+    .contact-section {
+      background-color: rgba(26, 20, 56, 0.8);
+      border-radius: 15px;
+      padding: 50px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
 
-        .contact-section {
-            background-color: rgba(26, 20, 56, 0.8);
-            border-radius: 15px;
-            padding: 50px;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
+    .contact-title {
+      font-size: 48px;
+      margin-bottom: 10px;
+      color: #f3efee;
+      font-weight: bold;
+    }
 
-        .contact-title {
-            font-size: 48px;
-            margin-bottom: 10px;
-            color: #e9967a;
-            font-weight: bold;
-        }
+    .divider {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, #a26bf8, #ceee19);
+      margin: 0 auto 50px;
+      border-radius: 2px;
+    }
 
-        .divider {
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, #a26bf8, #8c52ff);
-            margin: 0 auto 50px;
-            border-radius: 2px;
-        }
+    .contact-link {
+      display: block;
+      width: 100%;
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 15px 0;
+      text-decoration: none;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: white;
+      background: linear-gradient(to right, #9932cc, #8a2be2);
+      background-size: 100% 100%;
+      border-radius: 50px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(97, 16, 173, 0.3);
+    }
 
-        .contact-link {
-            display: block;
-            width: 100%;
-            max-width: 500px;
-            margin: 20px auto;
-            padding: 15px 0;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            color: white;
-            background: linear-gradient(to right, #9932cc, #8a2be2);
-            background-size: 100% 100%;
-            border-radius: 50px;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
-        }
+    .contact-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(to right, #4169e1, #ff69b4, #ff8c00, #4169e1);
+      z-index: -1;
+      transition: all 0.4s ease;
+    }
+    
+    .contact-link:hover {
+      box-shadow: 0 6px 20px rgba(138, 43, 226, 0.5);
+      transform: translateY(-2px);
+      letter-spacing: 1.5px;
+    }
 
-        .contact-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 200%;
-            height: 100%;
-            background: linear-gradient(to right, #4169e1, #ff69b4, #ff8c00, #4169e1);
-            z-index: -1;
-            transition: all 0.4s ease;
-        }
-        
-        .contact-link:hover {
-            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.5);
-            transform: translateY(-2px);
-            letter-spacing: 1.5px;
-        }
-
-        .contact-link:hover::before {
-            left: 0;
-            animation: gradientSlide 1.2s linear infinite;
-        }
-        
-        @keyframes gradientSlide {
-            0% {
-                transform: translateX(-50%);
-            }
-            100% {
-                transform: translateX(0%);
-            }
-        } .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
-
-        .contact-section {
-            background-color: rgba(26, 20, 56, 0.8);
-            border-radius: 15px;
-            padding: 50px;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact-title {
-            font-size: 48px;
-            margin-bottom: 10px;
-            color: #f9f9f9;
-            font-weight: bold;
-        }
-
-        .divider {
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, #a26bf8, #8c52ff);
-            margin: 0 auto 50px;
-            border-radius: 2px;
-        }
-
-        .contact-link {
-            display: block;
-            width: 100%;
-            max-width: 500px;
-            margin: 20px auto;
-            padding: 15px 0;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            color: white;
-            background: linear-gradient(to right, #9932cc, #8a2be2);
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
-        }
-
-        .contact-link:hover {
-            background: linear-gradient(to right, #4169e1, #ff69b4, #ff8c00);
-            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.5);
-            transform: translateY(-2px);
-            letter-spacing: 1.5px;
-        }
-        
+    .contact-link:hover::before {
+      left: 0;
+      animation: gradientSlide 1.2s linear infinite;
+    }
+    
+    @keyframes gradientSlide {
+      0% {
+        transform: translateX(-50%);
+      }
+      100% {
+        transform: translateX(0%);
+      }
+    }
   </style>
 </head>
 <body>
@@ -607,6 +579,8 @@
         <li><a href="#about" class="active">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#resume">Resume</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#achievements">Achievements</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -638,7 +612,7 @@
         <img src="Port-Pic.png" alt="Portfolio Website">
         <h3>Personal Portfolio Website</h3>
         <p>Responsive portfolio showcasing my projects and skills. Presenting a curated view of my skills and projects, this website offers a glimpse into my journey and capabilities. Explore my work and discover the experiences that define my professional profile.</p>
-        <a href="https://github.com/PoojaReddy7/PORTFOLIO" target="_blank">View Source Code</a>
+        <a href="https://github.com/PoojaReddy7/PORTFOLIO/blob/main/index.html" target="_blank">View Source Code</a>
       </div>
     </div>
   </section>
@@ -646,21 +620,93 @@
   <section id="resume">
     <h2>Resume</h2>
     <p>Download my resume to know more about my academic background and professional experiences.</p>
-    <a href="resume.pdf" download class="resume-button">Download Resume (PDF)</a>
+    <a href="res_3.pdf" download class="resume-button">Download Resume (PDF)</a>
   </section>
 
-  <section>
- <div class="container">
-        <div class="contact-section">
-            <h1 class="contact-title">Contact Me</h1>
-            <div class="divider"></div>
-            
-            <a href="mailto:pooja72467@gmail.com" class="contact-link">Email </a>
-            <a href="https://www.linkedin.com/in/pooja-reddy-42b366278/" class="contact-link">LinkedIn Profile</a>
-            <a href="https://github.com/poojareddy7" class="contact-link">GitHub Profile</a>
-        </div>
+<section id="certificates" class="animate__animated animate__fadeInUp" data-aos="fade-up">
+  <h2>Certificates</h2>
+  <div class="projects-grid">
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+      <img src="Html5.png" alt="HTML5">
+      <h3>Html5</h3>
+      <p>Platform: Infosys Springboard<br>Year: 2025</p>
     </div>
-    </section>
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+      <img src="css3.png" alt="CSS3">
+      <h3>CSS3</h3>
+      <p>Platform: Infosys Springboard<br>Year: 2025</p>
+    </div>
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+      <img src="tata-forage.png" alt="TATA">
+      <h3>Data Visualization</h3>
+      <p>Platform: Forage<br>Year: 2024</p>
+    </div>
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="400">
+      <img src="Accenture-forage.png" alt="Accenture">
+      <h3>Data Analytics</h3>
+      <p>Platform: Forage<br>Year: 2024</p>
+    </div>
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="500">
+      <img src="sql.png" alt="SQL">
+      <h3>SQL</h3>
+      <p>Platform: Great Learning<br>Year: 2024</p>
+    </div>
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="600">
+      <img src="Python-cisco-certificate.png" alt="PYTHON">
+      <h3>Python</h3>
+      <p>Platform: CISCO<br>Year: 2024</p>
+    </div>
+    <div class="project-card">
+      <img src="DataAnalytics-certificate.png" alt="cisco-data analytics">
+      <h3>Data Analytics</h3>
+      <p>Platform: CISCO<br>Year: 2024</p>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="achievements" class="animate__animated animate__zoomIn" data-aos="fade-up">
+  <h2>Achievements</h2>
+  <div class="Achievement-grid">
+    <div class="Achievement-card" data-aos="fade-up" data-aos-delay="100">
+      <img src="Ideathon.jpg" alt="Ideathon">
+      <h3>Ideathon</h3>
+      <p>Secured 2nd place and won ₹1000/-</p>
+    </div>
+    <div class="Achievement-card" data-aos="fade-up" data-aos-delay="200">
+      <img src="PPT.jpg" alt="PPT Presentation">
+      <h3>PPT Presentation</h3>
+      <p>Presented on 5G - Won ₹1000/-</p>
+    </div>
+    <div class="Achievement-card" data-aos="fade-up" data-aos-delay="300">
+      <img src="ART.jpg" alt="Drawing">
+      <h3>Drawing Competition</h3>
+      <p>Theme: Women Empowerment – Won ₹800/-</p>
+    </div>
+
+      <!-- <div class="Achievement-card" data-aos="fade-up" data-aos-delay="300">
+      <img src="SHIELD1.jpg" alt="Drawing">
+      <h3>Throwball Game</h3>
+      <p> Our team secured first place in the college throwball game/-</p>
+    </div> -->
+  </div>
+</section>
+
+
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-section">
+        <h1 class="contact-title">Contact Me</h1>
+        <div class="divider"></div>
+        
+        <a href="mailto:pooja72467@gmail.com" class="contact-link" target="_blank" >Email </a>
+        <a href="https://www.linkedin.com/in/pooja-reddy-42b366278/" class="contact-link" target="_blank" >LinkedIn Profile</a>
+        <a href="https://github.com/poojareddy7" class="contact-link" target="_blank" >GitHub Profile</a>
+      </div>
+    </div>
+  </section>
 
   <footer>
     &copy; 2025 Pooja Reddy. All rights reserved.
@@ -688,5 +734,15 @@
       });
     });
   </script>
+
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
+
 </body>
 </html>
